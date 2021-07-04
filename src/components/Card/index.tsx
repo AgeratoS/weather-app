@@ -1,8 +1,9 @@
-import { CardProps } from './interface'
+import { CardProps } from './interface';
+import Content  from './Content';
 
 const Card: React.FC<CardProps> = ({ value }) => (
     <div>
-        {value}
+        <Content value={value} />
     </div>
 )
 
