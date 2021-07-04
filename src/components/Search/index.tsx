@@ -1,9 +1,10 @@
+import React from "react";
 import { SearchProps } from "./interface";
-import styles from "./Search.module.css";
+import { SearchInput } from "./SearchInput";
 
 const Search: React.FC<SearchProps> = ({ value, onChange }) => (
-  <div className={styles.Search} data-testid="SearchInput">
-    <input value={value} onChange={onChange} className={styles.Search__input}/>
+  <div>
+    <SearchInput value={value} onChange={onChange} />
   </div>
 )
 
