@@ -1,7 +1,6 @@
 import renderer from 'react-test-renderer';
 import Search from '../index';
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { unmountComponentAtNode } from "react-dom";
 
 describe('Search component working', function () {
   let container: HTMLDivElement | null = null;
@@ -20,43 +19,9 @@ describe('Search component working', function () {
   })
 
   it('should renders correctly', function () {
-    const tree = renderer.create(<Search />).toJSON()
+    const value = "test";
+    const onChange = jest.fn();
+    const tree = renderer.create(<Search value={value} onChange={onChange}/>).toJSON()
     expect(tree).toMatchSnapshot();
-  });
-
-  it('should have class hover when clicked', function () {
-    const onChange = jest.fn();
-    act(() => {
-      render(<Search value={"test"} onChange={onChange}/>, container);
-    });
-
-    const input = document.querySelector('[data-testid="SearchInput"]');
-    expect(input).toBeInTheDocument();
-
-    act(() => {
-      input!.dispatchEvent(new MouseEvent("click", { bubbles: true }))
-    });
-
-    expect(input!.classList.contains('hovered')).toBeTruthy()
-  });
-
-  it('should have not class hover when blured', function() {
-    const onChange = jest.fn();
-    act(() => {
-      render(<Search value={"test"} onChange={onChange}/>, container);
-    });
-
-    const input = document.querySelector('[data-testid="SearchInput"]');
-    expect(input).toBeInTheDocument();
-
-    act(() => {
-      input!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    });
-
-    act(() => {
-      document.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    });
-
-    expect(input!.classList.contains('hovered')).not.toBeTruthy();
   });
 });
