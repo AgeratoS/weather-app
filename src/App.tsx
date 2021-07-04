@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Search from "./components/Search";
+import Card from './components/Card'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Search value={"AdfasdC"} onChange={event => {
         return null
       }} />
+      <Card value={'Hello'} />
     </div>
   );
 }
