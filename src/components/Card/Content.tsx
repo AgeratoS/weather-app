@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { CardProps } from './interface';
+import { CardProps, StyleProps } from './interface';
 import { palette } from "../../theme/colors"
 
-const Content: React.FC<CardProps> = ({ value }) => {
+const Content: React.FC<CardProps & StyleProps> = ({ value, width, height }) => {
     return (
-        <Container>
+        <Container width={width} height={height}>
             {value}
         </Container>
     )
@@ -12,9 +12,9 @@ const Content: React.FC<CardProps> = ({ value }) => {
 
 export default Content
 
-const Container = styled.div`
+const Container = styled.div<StyleProps>`
+    width: ${(props) => props.width}px;
+    height: ${(props) => props.height}px;
     padding: 20px 10px 20px 10px;
     background-color: ${palette.orange};
-    max-width: 350px;
-    max-height: 500px
 `

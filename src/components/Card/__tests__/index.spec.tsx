@@ -20,7 +20,7 @@ describe('Card component working', function() {
     });
 
     it('should renders correctly', function() {
-        const tree = renderer.create(<Card />).toJSON();
+        const tree = renderer.create(<Card value='hello' />).toJSON();
         expect(tree).toMatchSnapshot();
     });
 })

@@ -1,3 +1,8 @@
 export interface CardProps {
-    value: any
+    value: any;
+}
+
+export interface StyleProps {
+    width?: number;
+    height?: number;
 }
