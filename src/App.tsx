@@ -1,15 +1,16 @@
-import React from 'react';
 import './App.css';
 import Search from "./components/Search";
-import Card from './components/Card'
+import LayoutPrediction from './components/LayoutPrediction'
 
 function App() {
+  const res = [{ value: 'Lesha' }, { value: 'Dima' }]
+
   return (
     <div>
       <Search value={"AdfasdC"} onChange={event => {
         return null
       }} />
-      <Card value={'Hello'} />
+      <LayoutPrediction component={res} />
     </div>
   );
 }

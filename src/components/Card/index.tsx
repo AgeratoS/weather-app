@@ -1,9 +1,9 @@
-import { CardProps } from './interface';
+import { CardProps, StyleProps } from './interface';
 import Content  from './Content';
 
-const Card: React.FC<CardProps> = ({ value }) => (
+const Card: React.FC<CardProps & StyleProps> = ({ value, width, height }) => (
     <div>
-        <Content value={value} />
+        <Content value={value} width={width} height={height} />
     </div>
 )
 
